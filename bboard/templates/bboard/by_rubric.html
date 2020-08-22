@@ -8,10 +8,11 @@
 		<h1>Объявления</h1> 
 		<h3>Рубрика {{ current_rubric.name }}</h3>
 		<div id="nav">
-			<a href="/bboard/">Главная</a>
+			<a href="{% url 'index' %}">Главная</a>
 			{% for rubric in rubrics %}
-			<a href="/bboard/{{ rubric.pk }}/">{{ rubric.name }}</a>
+			<a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
 			{% endfor %}
+			<a href="{% url 'add' %}">Добавить объявление</a>
 		</div>
 		<div id="content">
 			{% for bb in bbs %}
